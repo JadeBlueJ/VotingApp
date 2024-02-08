@@ -11,41 +11,41 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "../client")));
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
-const sequelize = require("./util/database");
-//models
-const Message = require("./models/Message");
-const User = require("./models/User");
+// const sequelize = require("./util/database");
+// //models
+// const Message = require("./models/Message");
+// const User = require("./models/User");
 
 // Array to store messages
 let messages = [];
 let typingUsers = new Set();
 let polls = [
-    {
-      option: "Spider-Man",
-      votes: 0,
-      color: "rgb(255, 99, 132)",
-    },
-    {
-      option: "Superman",
-      votes: 0,
-      color: "rgb(54, 162, 235)",
-    },
-    {
-      option: "Batman",
-      votes: 0,
-      color: "rgb(36, 36, 36)",
-    },
-    {
-      option: "Son Goku",
-      votes: 0,
-      color: "rgb(255, 159, 64)",
-    },
-  ];
+  {
+    option: "Spider-Man",
+    votes: 0,
+    color: "rgb(255, 99, 132)",
+  },
+  {
+    option: "Superman",
+    votes: 0,
+    color: "rgb(54, 162, 235)",
+  },
+  {
+    option: "Batman",
+    votes: 0,
+    color: "rgb(36, 36, 36)",
+  },
+  {
+    option: "Son Goku",
+    votes: 0,
+    color: "rgb(255, 159, 64)",
+  },
+];
 io.on("connection", (socket) => {
   console.log(`new user connected: ${socket.id}`);
   // Emit existing messages to the newly connected socket
   socket.emit("initialMessages", messages);
-  socket.emit('polls', polls)
+  socket.emit("polls", polls);
   // Listen for new messages from clients
   socket.on("newMessage", (message) => {
     console.log(message);
@@ -63,10 +63,10 @@ io.on("connection", (socket) => {
     typingUsers.delete(data.username);
     if (typingUsers.size == 0) socket.broadcast.emit("noUserTyping");
   });
-  socket.on('newVote',pollData=>{
-    polls=pollData
-    socket.broadcast.emit("updatedPolls", polls)
-  })
+  socket.on("newVote", (pollData) => {
+    polls = pollData;
+    socket.broadcast.emit("updatedPolls", polls);
+  });
   // Handle disconnection
   socket.on("disconnect", () => {
     console.log("Client disconnected");
@@ -75,12 +75,12 @@ io.on("connection", (socket) => {
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../client/index.html"));
 });
-sequelize
-  .sync()
-  .then((res) => {
-    // console.log(res)
-    server.listen(process.env.PORT || 3000, () => {
-      console.log("Server is running on port 3000");
-    });
-  })
-  .catch((e) => console.log(e));
+server.listen(process.env.PORT || 3000, () => {
+  console.log("Server is running on port 3000");
+});
+// sequelize
+//   .sync()
+//   .then((res) => {
+//     // console.log(res)
+//   })
+//   .catch((e) => console.log(e));
