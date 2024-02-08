@@ -1,0 +1,332 @@
+
+.container-fluid{
+  padding:0;
+}
+.back-top {
+  background-color: #ff8ca7;
+  height: 15vh;
+}
+.card {
+  /* max-width: 350px; */
+  margin: 15px auto;
+  padding: 25px;
+  border: 1px solid #e2e2e2;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 fade(#000, 10%);
+  border-radius: 10px;
+  color: #444;
+}
+.chat-body{
+  box-shadow: 2px 2px 8px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 10px !important; /* Rounded corners */
+
+}
+.back-main {
+  background-color: #ffc9c9;
+  height: 85vh;
+}
+
+.back-container {
+  position: relative;
+}
+
+.front-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.front-container1 {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  bottom:0;
+}
+
+
+.voting {
+  padding: 0;
+  background-color: #fadcc9;
+  min-height: 650px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.voting-header{
+  background-color: #ffe2e2;
+  min-height: 50px;
+  border-top-left-radius: 10px;
+}
+.voting-main{
+  min-height: auto;
+}
+.contact-table-scroll {
+  overflow-y: scroll;
+  height: 600px;
+  
+}
+
+.message-area {
+  background-color: #dfc7db;
+  min-height: 650px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.message-table-scroll {
+  overflow-y: scroll;
+  height: 600px;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.message-box {
+  background-color: #f0f0f0;
+}
+
+.row {
+  background-color: rgb(245, 236, 223);
+}
+
+#chat-messages {
+  max-width: 70%;
+}
+
+#chat-messages td p {
+  word-wrap: break-word;
+  hyphens: auto;
+}
+.fit-image {
+  max-width: 50%;
+}
+
+.fit-video {
+  max-width: 50%;
+}
+
+.table-row {
+  max-width: 0; /* Adjust the maximum width as needed */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.message-input{
+  background-color: antiquewhite;
+}
+
+@keyframes blink { 50% { fill: transparent }}
+.dot { 
+  animation: 1s blink infinite;
+  fill: grey;
+}
+.dot:nth-child(2) { animation-delay: 250ms }
+.dot:nth-child(3) { animation-delay: 500ms }
+
+.loader {
+  /* background-color: #f1f1f1; */
+
+  color: grey;
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 400px;
+  text-align: center;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.login-card h1 {
+  color: #343a40;
+  margin-bottom: 30px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+}
+
+.login-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-button,
+.register-button {
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width:40%;
+  transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
+}
+
+.login-button {
+  background: #007bff;
+  color: #fff;
+  margin-right: 5px; /* margin kiri untuk tombol login */
+}
+
+.register-button {
+  border: 1px solid #007bff;
+  color: #007bff;
+  margin-left: 5px; /* margin kanan untuk tombol register */
+}
+
+.login-button:hover {
+  background: #0056b3;
+}
+
+@media screen and (max-width: 600px) {
+  .login-card {
+    width: 90%;
+  }
+
+  .login-buttons {
+    flex-direction: column;
+  }
+
+  .login-button,
+  .register-button {
+    flex: 100%;
+    margin-bottom: 10px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* chart */
+.chart-container {
+  background-color: #fff;
+  position: relative;
+  width: 35vw;
+  height: 15vw;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.poll {
+  background-color: #fff;
+  color: #333;
+  width: 30vw;
+  margin: 1.75rem auto 1rem auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  
+}
+.poll-heading {
+  padding: 1rem;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(to right, transparent, #333, transparent) 1;
+}
+.poll-body {
+  padding: 1rem;
+}
+.poll-body ul {
+  list-style-type: none;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+.poll-body li label {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+}
+.poll-body li label:hover {
+  background-color: #eee;
+}
+.poll-body li:first-child label {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;  
+}
+.poll-body li:last-child label {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;  
+}
+.poll-body li label input[type="radio"] {
+  margin-right: 0.5rem;
+}
+.poll-body li label input[type="radio"]:checked + span {
+  font-weight: bold;
+}
+.poll-footer {
+  padding-bottom: 1rem;
+  text-align: center;
+}
+.poll-footer button {
+  background-color: #777;
+  color: #fff;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  width: 7rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.poll-footer button:hover {
+  background-color: #333;
+}
+.poll-footer button:active {
+  background-color: #111;
+}
+
+@media(max-width: 1200px) {
+  .chart-container {
+    width: 65vw;
+    height: 32.5vw;
+  }
+  .poll {
+    width: 50%;
+  }
+}
+@media(max-width: 992px) {
+  .chart-container {
+    width: 75vw;
+    height: 37.5vw;
+  }
+  .poll {
+    width: 60%;
+  }
+}
+@media(max-width:767px) {
+  html {
+    font-size: 14px;
+  }
+  h1 {
+    font-size: 1.75rem;
+  }
+  .chart-container {
+    width: 95vw;
+    height: 47.5vw;
+  }
+  .poll {
+    width: 80%;
+  }
+}
