@@ -1,4 +1,4 @@
-let pollData=[]
+let pollData = [];
 let socket, pollChart;
 $(document).ready(function () {
   socket = io();
@@ -12,12 +12,12 @@ $(document).ready(function () {
   socket.on("polls", (initialPolls) => {
     // Update the messages array with initial messages
     pollData = initialPolls;
-    initChart();
+    if (Alpine.store("global_store").tabName == "INDEX") initChart();
   });
   socket.on("updatedPolls", (updatedPolls) => {
     // Update the messages array with initial messages
     pollData = updatedPolls;
-    initChart();
+    if (Alpine.store("global_store").tabName == "INDEX") initChart();
   });
   socket.on("userTyping", () => {
     Alpine.store("global_store").setTyping(true);
@@ -30,7 +30,7 @@ $(document).ready(function () {
     // Add the new message to the messages array
     Alpine.store("global_store").pushMessage(message);
   });
-  initChart();
+  if (Alpine.store("global_store").tabName == "INDEX") initChart();
 });
 const globalComponent = () => {
   return {
@@ -38,6 +38,7 @@ const globalComponent = () => {
     checkLogin() {
       if (localStorage.getItem("username")) {
         Alpine.store("global_store").login();
+        setTimeout(initChart,100)
       }
     },
   };
@@ -48,6 +49,7 @@ const loginComponent = () => {
     login() {
       localStorage.setItem("username", this.username);
       Alpine.store("global_store").login();
+      setTimeout(initChart,100)
     },
   };
 };

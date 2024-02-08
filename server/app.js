@@ -9,7 +9,7 @@ app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ limit: "50mb" }));
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../client")));
-const server = require("http").Server(app);
+const server = http.Server(app);
 const io = require("socket.io")(server);
 // const sequelize = require("./util/database");
 // //models
