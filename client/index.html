@@ -42,10 +42,8 @@
                 pushMessage(message) {
                     this.messages.push(message)
                 },
-                pushMessages(messages) {
-                    messages.forEach(msg => {
-                        this.messages.push(msg)
-                    })
+                initMessages(messages) {
+                    this.messages=[...messages]
                 },
             });
         });
@@ -137,7 +135,7 @@
                                     <div class="col-9">
                                         <form id="chat-form" @submit.prevent="submitMessage($event)">
                                             <input type="text" id="message" name="message" class="form-control"
-                                                x-on:keyup="startTyping" placeholder="Write message..." x-ref="message"
+                                                x-on:keyup="startTyping" placeholder="Write message..." x-ref="message" x-on:keyup.enter="handleEnter"
                                                 x-model="inputMessage">
                                             <button hidden="" type="submit" id="submitBtn" x-ref="submitBtn"></button>
                                         </form>

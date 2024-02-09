@@ -1,6 +1,6 @@
-# Readme for Voting App
+# VoterHub
 
-### Details: Socket.io based voting app with realtime features
+### Description: Socket.io based voting app with realtime voting and chat features
 
 ### Setup instructions:
 

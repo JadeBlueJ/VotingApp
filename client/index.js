@@ -7,7 +7,7 @@ $(document).ready(function () {
   });
   socket.on("initialMessages", (messages) => {
     // Update the messages array with initial messages
-    Alpine.store("global_store").pushMessages(messages);
+    Alpine.store("global_store").initMessages(messages);
   });
   socket.on("polls", (initialPolls) => {
     // Update the messages array with initial messages
@@ -65,8 +65,11 @@ const appComponent = () => {
     typingStopTimer: null,
     handleSubmit() {
       this.$refs.submitBtn.click();
+      this.$refs.message.blur;
       this.inputMessage = "";
-      //   this.$refs.message.blur;
+    },
+    handleEnter(){
+      this.inputMessage=""
     },
     logout() {
       localStorage.removeItem("username");
